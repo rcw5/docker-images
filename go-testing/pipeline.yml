@@ -1,0 +1,23 @@
+resources:
+- name: docker-images-repo
+  type: git
+  source:
+    uri: git@github.com:topflight-technology/docker-images.git
+    branch: master
+    private_key: ((repo_private_key))
+    paths: [go-testing/*]
+
+- name: go-testing-image
+  type: docker-image
+  source:
+    repository: topflighttech/go-testing
+    username: ((dockerhub_user))
+    password: ((dockerhub_password))
+
+jobs:
+- name: build-go-testing-image
+  plan:
+  - get: docker-images-repo
+    trigger: true
+  - put: go-testing-image
+    params: {build: docker-images-repo/go-testing }
