@@ -4,6 +4,8 @@ An image based on the official Golang alpine image, with the Ginkgo binary. Curr
 
 Use this for running Ginkgo based tests in CI.
 
+CI Pipeline: https://ci.topflight-technology.co.uk/teams/main/pipelines/build-docker/
+
 ## Usage
 
 ```bash
