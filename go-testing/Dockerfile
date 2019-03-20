@@ -5,3 +5,5 @@ RUN apk update && apk upgrade && \
 
 RUN go get -u github.com/onsi/ginkgo/ginkgo && \
   go get -u github.com/onsi/gomega/...
+
+ENV CGO_ENABLED=0
